@@ -1,0 +1,409 @@
+﻿{
+    "header":  {
+                   "so_bao_cao":  "Tá»ng há»£p 07/04/2026 - 13/04/2026",
+                   "ngay_bao_cao":  "13/04/2026",
+                   "don_vi_bao_cao":  "Äá»I CC\u0026CNCH KHU Vá»°C 30",
+                   "thoi_gian_tu_den":  "Tá»« ngÃ y 07/04/2026 Äáº¿n ngÃ y 13/04/2026"
+               },
+    "bang_thong_ke":  [
+                          {
+                              "stt":  "1",
+                              "noi_dung":  "I. TÃNH HÃNH CHÃY, Ná», Sá»° Cá» TAI Náº N",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "2",
+                              "noi_dung":  "1. Tá»ng sá» vá»¥ chÃ¡y",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "3",
+                              "noi_dung":  "Sá» ngÆ°á»i cháº¿t",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "4",
+                              "noi_dung":  "Sá» ngÆ°á»i bá» thÆ°Æ¡ng",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "5",
+                              "noi_dung":  "Sá» ngÆ°á»i cá»©u ÄÆ°á»£c",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "6",
+                              "noi_dung":  "TÃ i sáº£n thiá»t háº¡i (Æ°á»c tÃ­nh triá»u Äá»ng)",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "7",
+                              "noi_dung":  "TÃ i sáº£n cá»©u ÄÆ°á»£c (Æ°á»c tÃ­nh triá»u Äá»ng)",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "8",
+                              "noi_dung":  "2. Tá»ng sá» vá»¥ ná»",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "9",
+                              "noi_dung":  "Sá» ngÆ°á»i cháº¿t",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "10",
+                              "noi_dung":  "Sá» ngÆ°á»i bá» thÆ°Æ¡ng",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "11",
+                              "noi_dung":  "Sá» ngÆ°á»i cá»©u ÄÆ°á»£c",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "12",
+                              "noi_dung":  "TÃ i sáº£n thiá»t háº¡i (Æ°á»c tÃ­nh triá»u Äá»ng)",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "13",
+                              "noi_dung":  "TÃ i sáº£n cá»©u ÄÆ°á»£c (Æ°á»c tÃ­nh triá»u Äá»ng)",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "14",
+                              "noi_dung":  "3. Tá»ng sá» vá»¥ tai náº¡n, sá»± cá»",
+                              "ket_qua":  7
+                          },
+                          {
+                              "stt":  "15",
+                              "noi_dung":  "Sá» ngÆ°á»i cá»©u ÄÆ°á»£c (=STT 16+STT 17)",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "16",
+                              "noi_dung":  "Trong ÄÃ³, sá» ngÆ°á»i trá»±c tiáº¿p cá»©u ÄÆ°á»£c",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "17",
+                              "noi_dung":  "Trong ÄÃ³, sá» ngÆ°á»i tá» chá»©c hÆ°á»ng dáº«n tá»± thoÃ¡t náº¡n",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "18",
+                              "noi_dung":  "Sá» thi thá» náº¡n nhÃ¢n tÃ¬m ÄÆ°á»£c",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "19",
+                              "noi_dung":  "Sá» tÃ i sáº£n cá»©u ÄÆ°á»£c (Æ°á»c tÃ­nh triá»u Äá»ng)",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "20",
+                              "noi_dung":  "II. Káº¾T QUáº¢ CÃNG TÃC PCCC VÃ CNCH",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "21",
+                              "noi_dung":  "1. TuyÃªn truyá»n vá» PCCC vÃ  CNCH",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "22",
+                              "noi_dung":  "1.1. TuyÃªn truyá»n qua cÃ¡c phÆ°Æ¡ng tiá»n thÃ´ng tin truyá»n thÃ´ng vÃ  ná»n táº£ng trá»±c tuyáº¿n MXH (zalo, facebook, youtube, Website)",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "23",
+                              "noi_dung":  "Sá» tin, bÃ i ÄÃ£ ÄÄng phÃ¡t",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "24",
+                              "noi_dung":  "Sá» hÃ¬nh áº£nh ÄÆ°á»£c ÄÄng táº£i",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "26",
+                              "noi_dung":  "1.2. TuyÃªn truyá»n trá»±c tiáº¿p táº¡i cÆ¡ sá», doanh nghiá»p, cÃ¡c khu dÃ¢n cÆ°",
+                              "ket_qua":  2
+                          },
+                          {
+                              "stt":  "27",
+                              "noi_dung":  "Sá» cuá»c",
+                              "ket_qua":  2
+                          },
+                          {
+                              "stt":  "28",
+                              "noi_dung":  "Sá» ngÆ°á»i tham dá»±",
+                              "ket_qua":  400
+                          },
+                          {
+                              "stt":  "29",
+                              "noi_dung":  "Sá» khuyáº¿n cÃ¡o, tá» rÆ¡i ÄÃ£ phÃ¡t hÃ nh",
+                              "ket_qua":  400
+                          },
+                          {
+                              "stt":  "30",
+                              "noi_dung":  "2. HÆ°á»ng dáº«n, kiá»m tra vá» PCCC vÃ  CNCH",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "31",
+                              "noi_dung":  "Sá» cÆ¡ sá» ÄÆ°á»£c kiá»m an toÃ n PCCC (=STT 31+STT 33)",
+                              "ket_qua":  76
+                          },
+                          {
+                              "stt":  "32",
+                              "noi_dung":  "Kiá»m tra Äá»nh ká»³",
+                              "ket_qua":  76
+                          },
+                          {
+                              "stt":  "33",
+                              "noi_dung":  "Kiá»m tra Äá»t xuáº¥t theo chuyÃªn Äá»",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "34",
+                              "noi_dung":  "Sá» vi pháº¡m ÄÆ°á»£c phÃ¡t hiá»n",
+                              "ket_qua":  1
+                          },
+                          {
+                              "stt":  "35",
+                              "noi_dung":  "Tá»ng sá» cÆ¡ sá» bá» xá»­ pháº¡t VPHC vá» PCCC (=STT 36+...+STT 39)",
+                              "ket_qua":  1
+                          },
+                          {
+                              "stt":  "36",
+                              "noi_dung":  "Trong ÄÃ³, pháº¡t cáº£nh cÃ¡o",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "37",
+                              "noi_dung":  "Trong ÄÃ³, táº¡m ÄÃ¬nh chá» hoáº¡t Äá»ng",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "38",
+                              "noi_dung":  "Trong ÄÃ³, ÄÃ¬nh chá» hoáº¡t Äá»ng",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "39",
+                              "noi_dung":  "Trong ÄÃ³, pháº¡t tiá»n",
+                              "ket_qua":  1
+                          },
+                          {
+                              "stt":  "40",
+                              "noi_dung":  "Sá» tiá»n pháº¡t thu ÄÆ°á»£c (triá»u Äá»ng)",
+                              "ket_qua":  4
+                          },
+                          {
+                              "stt":  "41",
+                              "noi_dung":  "3. XÃ¢y dá»±ng, thá»±c táº­p phÆ°Æ¡ng Ã¡n chá»¯a chÃ¡y, CNCH",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "42",
+                              "noi_dung":  "3.1. PhÆ°Æ¡ng Ã¡n chá»¯a chÃ¡y, cá»©u náº¡n, cá»©u há» cá»§a cÆ¡ sá» theo Máº«u sá» PC 06 kÃ¨m theo Nghá» Äá»nh sá» 105/2025/NÄ-CP",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "43",
+                              "noi_dung":  "Sá» phÆ°Æ¡ng Ã¡n ÄÆ°á»£c xÃ¢y dá»±ng vÃ  phÃª duyá»t",
+                              "ket_qua":  76
+                          },
+                          {
+                              "stt":  "44",
+                              "noi_dung":  "Sá» phÆ°Æ¡ng Ã¡n ÄÆ°á»£c thá»±c táº­p",
+                              "ket_qua":  76
+                          },
+                          {
+                              "stt":  "45",
+                              "noi_dung":  "3.2. PhÆ°Æ¡ng Ã¡n chá»¯a chÃ¡y, cá»©u náº¡n, cá»©u há» cá»§a phÆ°Æ¡ng tiá»n giao thÃ´ng ÄÆ°á»£c xÃ¢y dá»±ng vÃ  phÃª duyá»t theo Máº«u sá» PC 07 kÃ¨m theo Nghá» Äá»nh sá» 105/2025/NÄ-CP",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "46",
+                              "noi_dung":  "Sá» phÆ°Æ¡ng Ã¡n ÄÆ°á»£c xÃ¢y dá»±ng vÃ  phÃª duyá»t",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "47",
+                              "noi_dung":  "Sá» phÆ°Æ¡ng Ã¡n ÄÆ°á»£c thá»±c táº­p",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "48",
+                              "noi_dung":  "3.3. PhÆ°Æ¡ng Ã¡n chá»¯a chÃ¡y, cá»©u náº¡n, cá»©u há» cá»§a cÆ¡ quan CÃ´ng an thá»±c hiá»n theo Máº«u sá» PC 08 kÃ¨m theo Nghá» Äá»nh sá» 105/2025/NÄ-CP",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "49",
+                              "noi_dung":  "Sá» phÆ°Æ¡ng Ã¡n ÄÆ°á»£c xÃ¢y dá»±ng vÃ  phÃª duyá»t",
+                              "ket_qua":  4
+                          },
+                          {
+                              "stt":  "50",
+                              "noi_dung":  "Sá» phÆ°Æ¡ng Ã¡n ÄÆ°á»£c thá»±c táº­p",
+                              "ket_qua":  4
+                          },
+                          {
+                              "stt":  "51",
+                              "noi_dung":  "3.4. PhÆ°Æ¡ng Ã¡n cá»©u náº¡n, cá»©u há» cá»§a cÆ¡ quan CÃ´ng an thá»±c hiá»n theo Máº«u sá» PC 09 kÃ¨m theo Nghá» Äá»nh sá» 105/2025/NÄ-CP",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "52",
+                              "noi_dung":  "Sá» phÆ°Æ¡ng Ã¡n ÄÆ°á»£c xÃ¢y dá»±ng vÃ  phÃª duyá»t",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "53",
+                              "noi_dung":  "Sá» phÆ°Æ¡ng Ã¡n ÄÆ°á»£c thá»±c táº­p",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "54",
+                              "noi_dung":  "4. CÃ´ng tÃ¡c huáº¥n luyá»n nghiá»p vá»¥ chá»¯a chÃ¡y vÃ  CNCH thÆ°á»ng xuyÃªn",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "55",
+                              "noi_dung":  "Tá»ng sá» CBCS tham gia huáº¥n luyá»n (=STT 56+...+STT 61)",
+                              "ket_qua":  269
+                          },
+                          {
+                              "stt":  "56",
+                              "noi_dung":  "Chá» huy phÃ²ng",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "57",
+                              "noi_dung":  "Chá» huy Äá»i",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "58",
+                              "noi_dung":  "CÃ¡n bá» tiá»u Äá»i",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "59",
+                              "noi_dung":  "Chiáº¿n sá»¹ CC vÃ  CNCH",
+                              "ket_qua":  0
+                          },
+                          {
+                              "stt":  "61",
+                              "noi_dung":  "LÃ¡i tÃ u CC vÃ  CNCH",
+                              "ket_qua":  0
+                          }
+                      ],
+    "danh_sach_cnch":  [
+                           {
+                               "stt":  9,
+                               "mo_ta":  "",
+                               "dia_diem":  "Cáº§u PhÃº CÆ°á»ng, Cáº§u PhÃº CÆ°á»ng, phÆ°á»ng Thá»§ Dáº§u Má»t, ThÃ nh phá» Há» ChÃ­ Minh",
+                               "thiet_hai":  "0.0",
+                               "thoi_gian":  "22 giá» 36 phÃºt",
+                               "ngay_xay_ra":  "09/04/2026",
+                               "ket_qua_xu_ly":  "",
+                               "noi_dung_tin_bao":  "Nháº£y sÃ´ng",
+                               "luc_luong_tham_gia":  "",
+                               "thong_tin_nan_nhan":  "1.0"
+                           }
+                       ],
+    "danh_sach_sclq":  [
+                           {
+                               "stt":  65,
+                               "vu_chay_ngay":  "07/04/2026",
+                               "dia_diem":  "ÄÆ°á»ng Nguyá»\u0085n ChÃ­ Thanh, phÆ°á»ng ChÃ¡nh Hiá»p, ThÃ nh phá» Há» ChÃ­ Minh",
+                               "nguyen_nhan":  "ChÃ¡y cá»",
+                               "thiet_hai":  "KhÃ´ng",
+                               "chi_huy_chua_chay":  "Äáº¡i Ãºy Nguyá»\u0085n NguyÃªn Anh",
+                               "ghi_chu":  ""
+                           },
+                           {
+                               "stt":  66,
+                               "vu_chay_ngay":  "08/04/2026",
+                               "dia_diem":  "ÄÆ°á»ng BÃ¬nh Chuáº©n 32, phÆ°á»ng An PhÃº, ThÃ nh phá» Há» ChÃ­ Minh",
+                               "nguyen_nhan":  "ChÃ¡y cá»",
+                               "thiet_hai":  "KhÃ´ng",
+                               "chi_huy_chua_chay":  "Thiáº¿u tÃ¡ HoÃ ng Duy Nam",
+                               "ghi_chu":  ""
+                           },
+                           {
+                               "stt":  67,
+                               "vu_chay_ngay":  "11/04/2026",
+                               "dia_diem":  "ÄÆ°á»ng Thuáº­n Giao 02, phÆ°á»ng Thuáº­n Giao, thÃ nh phá» Há» ChÃ­ Minh",
+                               "nguyen_nhan":  "ChÃ¡y cá»",
+                               "thiet_hai":  "KhÃ´ng",
+                               "chi_huy_chua_chay":  "Thiáº¿u tÃ¡ TÃ´ Ngá»c Thanh",
+                               "ghi_chu":  ""
+                           },
+                           {
+                               "stt":  68,
+                               "vu_chay_ngay":  "11/04/2026",
+                               "dia_diem":  "quÃ¡n cÃ  phÃª sÃ¢n vÆ°á»n Há»ng HÃ , Äá»a chá»: ÄÆ°á»ng Má»¹ PhÆ°á»c - TÃ¢n Váº¡n, khu phá» 4, phÆ°á»ng An PhÃº, ThÃ nh phá» Há» ChÃ­ Minh",
+                               "nguyen_nhan":  "ChÃ¡y quÃ¡n cafe",
+                               "thiet_hai":  "KhÃ´ng",
+                               "chi_huy_chua_chay":  "Thiáº¿u tÃ¡ TÃ´ Ngá»c Thanh",
+                               "ghi_chu":  ""
+                           },
+                           {
+                               "stt":  69,
+                               "vu_chay_ngay":  "12/04/2026",
+                               "dia_diem":  "ÄÆ°á»ng BÃ¬nh Chuáº©n 61, kp BÃ¬nh PhÆ°á»c B, phÆ°á»ng An PhÃº, ThÃ nh phá» Há» ChÃ­ Minh",
+                               "nguyen_nhan":  "ChÃ¡y cá»",
+                               "thiet_hai":  "KhÃ´ng",
+                               "chi_huy_chua_chay":  "Thiáº¿u tÃ¡ Nguyá»\u0085n LÃ¢m VÅ©",
+                               "ghi_chu":  ""
+                           },
+                           {
+                               "stt":  70,
+                               "vu_chay_ngay":  "12/04/2026",
+                               "dia_diem":  "Äáº¡i lá» BÃ¬nh DÆ°Æ¡ng (Quá»c lá» 13) thuá»c phÆ°á»ng ChÃ¡nh Hiá»p, ThÃ nh phá» Há» ChÃ­ Minh",
+                               "nguyen_nhan":  "ChÃ¡y cá»",
+                               "thiet_hai":  "KhÃ´ng",
+                               "chi_huy_chua_chay":  "Thiáº¿u tÃ¡ Nguyá»\u0085n LÃ¢m VÅ©",
+                               "ghi_chu":  ""
+                           },
+                           {
+                               "stt":  71,
+                               "vu_chay_ngay":  "13/04/2026",
+                               "dia_diem":  "Khu dÃ¢n cÆ° ChÃ¡nh NghÄ©a, phÆ°á»ng Thá»§ Dáº§u Má»t, tá»nh BÃ¬nh DÆ°Æ¡ng",
+                               "nguyen_nhan":  "ChÃ¡y cá»",
+                               "thiet_hai":  "KhÃ´ng",
+                               "chi_huy_chua_chay":  "Äáº¡i Ãºy Nguyá»\u0085n NguyÃªn Anh",
+                               "ghi_chu":  ""
+                           }
+                       ],
+    "danh_sach_tong_vu_chay":  [
+
+                               ],
+    "danh_sach_cong_tac_khac":  [
+
+                                ],
+    "danh_sach_cong_van_tham_muu":  [
+
+                                    ],
+    "danh_sach_phuong_tien_hu_hong":  [
+
+                                      ],
+    "phan_I_va_II_chi_tiet_nghiep_vu":  {
+                                            "quan_so_truc":  0,
+                                            "tong_bao_cao":  8,
+                                            "chi_tiet_cnch":  "3. TÃ¬nh hÃ¬nh cÃ´ng tÃ¡c cá»©u náº¡n, cá»©u há»: 1 vá»¥.\n4. TÃ¬nh hÃ¬nh chi viá»n chá»¯a chÃ¡y: 1 vá»¥.\n5. TÃ¬nh hÃ¬nh khÃ¡c cÃ³ liÃªn quan Äáº¿n cÃ´ng tÃ¡c PCCC: 7 sá»± cá».",
+                                            "tong_chi_vien":  1,
+                                            "tong_cong_van":  0,
+                                            "tong_ke_hoach":  0,
+                                            "tong_so_vu_no":  0,
+                                            "tong_so_vu_chay":  0,
+                                            "tong_so_vu_cnch":  1,
+                                            "tong_xe_hu_hong":  0,
+                                            "cong_tac_an_ninh":  ""
+                                        }
+}

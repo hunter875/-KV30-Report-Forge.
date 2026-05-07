@@ -1,0 +1,32 @@
+# Git ignore for Data Entry Platform
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+.env
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node
+node_modules/
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+alembic/versions/*.py
+!alembic/versions/.gitkeep
+.chrome-codex/

@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.app-dark .handsontable,
+.app-dark .handsontable td,
+.app-dark .handsontable th {
+  background: #0f172a !important;
+  color: #e5e7eb !important;
+  border-color: #334155 !important;
+}
+
+.app-dark .handsontable .htDimmed,
+.app-dark .handsontable .ht_clone_top th,
+.app-dark .handsontable .ht_clone_left th {
+  background: #111827 !important;
+  color: #cbd5e1 !important;
+}
+
+.app-dark .handsontable .area,
+.app-dark .handsontable .highlight {
+  background: rgba(37, 99, 235, 0.24) !important;
+}
+
+.app-dark input,
+.app-dark textarea,
+.app-dark select {
+  color-scheme: dark;
+}

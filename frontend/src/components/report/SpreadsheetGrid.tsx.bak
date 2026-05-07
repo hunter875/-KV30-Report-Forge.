@@ -1,0 +1,335 @@
+import { useCallback, useMemo, useRef, useState } from 'react'
+import { HotTable } from '@handsontable/react'
+import { registerAllModules } from 'handsontable/registry'
+import 'handsontable/dist/handsontable.full.min.css'
+import {
+  GridColumn,
+  GridRow,
+  Operation,
+  DomainRowType
+} from '@/types/report'
+
+registerAllModules()
+
+interface SpreadsheetGridProps {
+  rows: GridRow[]
+  columns: GridColumn[]
+  rowType: DomainRowType
+  onOperationsChange: (operations: Operation[]) => void
+  hideHeaders?: boolean  // If true, don't show column headers (use custom header)
+  hideRowHeaders?: boolean
+  title?: string
+  titleBgColor?: string
+  headerBgColor?: string
+}
+
+/**
+ * Spreadsheet grid component using Handsontable
+ *
+ * Features:
+ * - Inline editing
+ * - Copy/paste from Excel
+ * - Keyboard navigation
+ * - Sticky header (unless hideHeaders)
+ * - Sticky first column (STT if present)
+ * - Add/delete rows
+ * - Type-safe column handling
+ *
+ * Emits operations immediately on any change.
+ * Parent handles debouncing and batch sending.
+ */
+export const SpreadsheetGrid = ({
+  rows,
+  columns,
+  rowType,
+  onOperationsChange,
+  hideHeaders = false,
+  hideRowHeaders = false,
+  title,
+  titleBgColor = '#d9ead3',
+  headerBgColor = '#ffffff'
+}: SpreadsheetGridProps) => {
+  const hotRef = useRef<any>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
+  const [invalidCells, setInvalidCells] = useState<Set<string>>(new Set())
+
+  // Validate a value based on column type
+  const validateCell = useCallback((column: GridColumn, value: any): boolean => {
+    if (value === '' || value === null || value === undefined) return true // Allow empty
+
+    if (column.type === 'number') {
+      const num = Number(value)
+      // Check if it's a valid number and not text
+      if (isNaN(num)) return false
+      // Check for negative if needed (can be configurable per column)
+      // For now, allow negatives as they might be valid
+      return true
+    }
+
+    if (column.type === 'date') {
+      // Expect DD/MM/YYYY format
+      const datePattern = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/
+      if (!datePattern.test(value)) return false
+      const [day, month, year] = value.split('/').map(Number)
+      const date = new Date(year, month - 1, day)
+      return date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day
+    }
+
+    return true // text always valid
+  }, [])
+
+  // Build data array for HotTable
+  const data = useMemo(() => {
+    return rows.map(row => {
+      const rowData: any = {}
+      columns.forEach(col => {
+        rowData[col.key] = row[col.key] !== undefined ? row[col.key] : ''
+      })
+      return rowData
+    })
+  }, [rows, columns])
+
+  // Get column settings for Handsontable
+  const hotColumns = useMemo(() => {
+    return columns.map(col => ({
+      data: col.key,
+      type: col.type === 'number' ? 'numeric' : col.type,
+      readOnly: col.readonly || false,
+      width: col.width,
+      numericFormat: col.type === 'number' ? { pattern: '0' } : undefined,
+      dateFormat: col.type === 'date' ? 'DD/MM/YYYY' : undefined,
+      correctFormat: true,
+      allowInvalid: false
+    }))
+  }, [columns])
+
+  // Handle cell changes
+  const afterChange = useCallback((
+    changes: [number, string, any, any][] | null,
+    source: string
+  ) => {
+    if (!changes || source === 'loadData') return
+
+    const newInvalidCells = new Set(invalidCells)
+    const newOperations: Operation[] = []
+
+    changes.forEach(([rowIndex, colKey, oldValue, newValue]) => {
+      const row = rows[rowIndex]
+      if (!row) return
+
+      const column = columns.find(c => c.key === colKey)
+      if (!column || column.readonly) return
+
+      // Remove old invalid marker for this cell
+      const oldCellKey = `${rowIndex}-${colKey}`
+      newInvalidCells.delete(oldCellKey)
+
+      // Validate new value
+      if (!validateCell(column, newValue)) {
+        newInvalidCells.add(`${rowIndex}-${colKey}`)
+      }
+
+      if (row.id) {
+        newOperations.push({
+          type: 'update',
+          row_id: row.id,
+          row_type: rowType,
+          stt: row.stt,
+          data: { [colKey]: newValue }
+        })
+      } else {
+        const fullPayload: Record<string, any> = {}
+        columns.forEach(col => {
+          fullPayload[col.key] = row[col.key] !== undefined ? row[col.key] : ''
+        })
+        fullPayload[colKey] = newValue
+
+        newOperations.push({
+          type: 'create',
+          temp_id: row.temp_id,
+          row_type: rowType,
+          stt: row.stt,
+          data: fullPayload
+        })
+      }
+    })
+
+    if (newOperations.length > 0) {
+      onOperationsChange(newOperations)
+    }
+
+    if (newInvalidCells.size > 0) {
+      setInvalidCells(newInvalidCells)
+    }
+  }, [rows, columns, rowType, onOperationsChange, invalidCells, validateCell])
+
+  // Handle row insertions
+  const afterCreateRow = useCallback((
+    index: number,
+    amount: number,
+    source: string
+  ) => {
+    if (source !== 'copy' && source !== 'paste' && source !== 'autofill') return
+
+    const newRows = rows.slice(index, index + amount)
+
+    const newOps: Operation[] = newRows.map(row => {
+      const fullPayload: Record<string, any> = {}
+      columns.forEach(col => {
+        fullPayload[col.key] = row[col.key] !== undefined ? row[col.key] : ''
+      })
+
+      return {
+        type: 'create',
+        temp_id: row.temp_id,
+        row_type: rowType,
+        stt: row.stt,
+        data: fullPayload
+      }
+    })
+
+    if (newOps.length > 0) {
+      onOperationsChange(newOps)
+    }
+  }, [rows, columns, rowType, onOperationsChange])
+
+  // Handle row deletions
+  const afterRemoveRow = useCallback((
+    index: number,
+    amount: number,
+    source: string
+  ) => {
+    if (source !== 'auto' || amount <= 0) return
+
+    const deletedRows = rows.slice(index, index + amount)
+
+    const newOps: Operation[] = deletedRows
+      .filter(row => row.id)
+      .map(row => ({
+        type: 'delete',
+        row_id: row.id!
+      }))
+
+    if (newOps.length > 0) {
+      onOperationsChange(newOps)
+    }
+  }, [rows, onOperationsChange])
+
+  // Column headers: false if using custom header
+  const colHeaders = hideHeaders || title ? false : columns.map(col => col.title)
+
+  // Sticky first column (STT) if present
+  const firstColumnIsSticky = columns[0]?.key === 'stt'
+  const fixedColumnsLeft = firstColumnIsSticky ? 1 : 0
+  const tableWidth = columns.reduce((total, column) => total + (column.width || 120), 0)
+
+  const syncHeaderScroll = useCallback(() => {
+    const hotInstance = hotRef.current?.hotInstance
+    const scrollLeft = hotInstance?.scrollable?.contentScrollLeft
+    if (headerRef.current && typeof scrollLeft === 'number') {
+      headerRef.current.scrollLeft = scrollLeft
+    }
+  }, [])
+
+  const settings = {
+    data,
+    colHeaders,
+    columns: hotColumns,
+    rowHeaders: !hideRowHeaders,
+    height: '600px',
+    width: '100%',
+    licenseKey: 'non-commercial-and-evaluation',
+    afterChange,
+    afterCreateRow,
+    afterRemoveRow,
+    afterScroll: syncHeaderScroll,
+    stickyHeaders: !hideHeaders,
+    fixedColumnsLeft,
+    fillHandle: true,
+    copyPaste: {
+      pasteMode: 'overwrite',
+      autoColumnSize: false
+    },
+    autoWrapRow: true,
+    wrapCells: true,
+    tabStops: 1000,
+    allowInsertRow: true,
+    allowInvalid: false
+  }
+
+  if (!title) {
+    return <HotTable ref={hotRef} {...settings} />
+  }
+
+  return (
+    <div style={{ width: '100%' }}>
+      <div
+        ref={headerRef}
+        style={{
+          overflowX: 'auto',
+          border: '1px solid #222',
+          borderBottom: 'none',
+          maxWidth: '100%'
+        }}
+      >
+        <table
+          style={{
+            width: `${tableWidth}px`,
+            tableLayout: 'fixed',
+            borderCollapse: 'collapse'
+          }}
+        >
+          <colgroup>
+            {columns.map(column => (
+              <col key={column.key} style={{ width: `${column.width || 120}px` }} />
+            ))}
+          </colgroup>
+          <thead>
+            <tr>
+              <th
+                colSpan={columns.length}
+                style={{
+                  background: titleBgColor,
+                  border: '1px solid #222',
+                  color: '#000',
+                  fontWeight: 700,
+                  fontSize: '13px',
+                  padding: '5px 8px',
+                  textAlign: 'center'
+                }}
+              >
+                {title}
+              </th>
+            </tr>
+            <tr>
+              {columns.map(column => (
+                <th
+                  key={column.key}
+                  style={{
+                    background: headerBgColor,
+                    border: '1px solid #222',
+                    color: '#000',
+                    fontWeight: 700,
+                    fontSize: '12px',
+                    lineHeight: 1.2,
+                    padding: '6px 8px',
+                    textAlign: 'center',
+                    whiteSpace: 'normal',
+                    wordBreak: 'break-word'
+                  }}
+                >
+                  {column.title}
+                </th>
+              ))}
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div style={{ border: '1px solid #dee2e6', borderTop: 'none' }}>
+        <HotTable ref={hotRef} {...settings} />
+      </div>
+    </div>
+  )
+}
+
+export default SpreadsheetGrid
